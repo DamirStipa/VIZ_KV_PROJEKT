@@ -19,3 +19,5 @@ https://www.bea.gov/data/gdp/gdp-county-metro-and-other-areas
 https://stackoverflow.com/questions/736590/add-new-attribute-element-to-json-object-using-javascript !!!!!!!!!!!!!
 
 https://stackoverflow.com/questions/34857458/reading-local-text-file-into-a-javascript-array
+
+https://stackoverflow.com/questions/14446447/how-to-read-a-local-text-file
