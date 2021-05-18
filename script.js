@@ -24,7 +24,7 @@ let drawMap = () => {
         if(percentage <= 15) return '#ffbf00'            
         if(percentage <= 30) return 'darkorange'
         if(percentage <= 45) return '#E33725'
-        if(percentage > 45 ) return '#A01000'      
+        if(percentage > 45) return '#A01000'      
     })
     .attr('data-fips', (countyDataItem) => {
         return countyDataItem['id']
@@ -48,7 +48,7 @@ let drawMap = () => {
 
         tooltip.text(county['fips'] + ' - ' + county['area_name'] + ', ' + county['state'] + ' : ' + county['bachelorsOrHigher'] + '%')
 
-        tooltip.attr('data-education', county['bachelorsOrHigher'])
+        tooltip.attr('data-education', county['e'])
     })
 
     .on('mouseout', (countyDataItem) => {
