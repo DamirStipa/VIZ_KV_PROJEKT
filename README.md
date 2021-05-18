@@ -15,3 +15,5 @@ https://worldmap.harvard.edu/data/geonode:country_centroids_az8
 https://worldmap.harvard.edu/maps/19770
 
 https://www.bea.gov/data/gdp/gdp-county-metro-and-other-areas
+
+https://stackoverflow.com/questions/736590/add-new-attribute-element-to-json-object-using-javascript !!!!!!!!!!!!!
