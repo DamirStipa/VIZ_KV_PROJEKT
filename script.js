@@ -1,8 +1,10 @@
 let countyURL = "https://cdn.freecodecamp.org/testable-projects-fcc/data/choropleth_map/counties.json";
 let educationURL = "https://cdn.freecodecamp.org/testable-projects-fcc/data/choropleth_map/for_user_education.json";
+let gpaURL = "https://api.npoint.io/d9dca4bd09576c55acaf";
 
 let countyData;
 let educationData;
+let gpaData;
 
 let canvas = d3.select('#canvas');
 let tooltip = d3.select('#tooltip');
@@ -18,7 +20,7 @@ let drawMap = () => {
     .attr('class', 'county')
     .attr('fill', (countyDataItem) => {
         let id = countyDataItem['id']
-        let county = educationData.find((item) => {
+        let county = gpaData.find((item) => {
             return item['fips'] === id
         })
         let percentage = county['bachelorsOrHigher']
@@ -32,7 +34,7 @@ let drawMap = () => {
     })
     .attr('data-education', (countyDataItem) => {
         let id = countyDataItem['id']
-        let county = educationData.find((item) => {
+        let county = gpaData.find((item) => {
             return item['fips'] === id
         })
         let percentage = county['bachelorsOrHigher']
@@ -46,11 +48,11 @@ let drawMap = () => {
                 .style('visibility', 'visible')
 
         let id = countyDataItem['id']
-        let county = educationData.find((item) => {
+        let county = gpaData.find((item) => {
             return item['fips'] === id
         })
 
-        tooltip.text(county['fips'] + ' - ' + county['area_name'] + ', ' + county['state'] + ' : ' + county['bachelorsOrHigher'] + '%')
+        tooltip.text(county['fips'] + ' - ' + county['area_name'] + ', ' + county['state'] + ' : ' + county['bachelorsOrHigher'] + '%' + ", GPA: " + county['GPA'])
 
         tooltip.attr('data-education', county['e'])
         tooltip.transition()
@@ -67,7 +69,7 @@ let drawMap = () => {
                             .style({
                                 'fill-opacity':.7
           })
-          .style('visibility', 'hidden')
+          
 
     })
 
@@ -83,14 +85,14 @@ d3.json(countyURL).then(
 
             console.log(countyData)
 
-            d3.json(educationURL).then(
+            d3.json(gpaURL).then(
                 (data, error) => {
                 if(error){
                     console.log(log)
                 }
                 else{
-                    educationData = data
-                    console.log(educationData)
+                    gpaData = data
+                    console.log(gpaData)
                     drawMap();
                 }
             })
