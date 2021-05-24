@@ -6,7 +6,12 @@ let countyData;
 let educationData;
 let gpaData;
 
-let canvas = d3.select('#canvas');
+width = 950;
+height = 600;
+
+let canvas = d3.select('#canvas').call(d3.zoom().on("zoom", function () {
+    canvas.attr("transform", d3.event.transform)
+ }))
 let tooltip = d3.select('#tooltip');
 
 let drawMap = () => {
@@ -40,6 +45,7 @@ let drawMap = () => {
         let percentage = county['bachelorsOrHigher']
         return percentage
     })
+
     .on('mouseover', (countyDataItem) => {
         var tip = "<h3>" + "d.properties.name" + "</h3>";
         tooltip.html(tip)
