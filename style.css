@@ -39,13 +39,19 @@ g{
 }
 
 #tooltip{
-    visibility: hidden;
+    position: absolute;
     height: auto;
     width: auto;
     margin-top: 2px;
-    color: #FDF1E7;
+    color: #000000;
     font-size: 24px;
     margin-bottom: 5px;
+    background-color: white;
+   -webkit-border-radius: 10px;
+   -moz-border-radius: 10px;
+   border-radius: 10px;
+   pointer-events: none;
+
 }
 
 #legend{
